@@ -38,7 +38,7 @@ The integral control system is defined as `Ki * sum(CTE)`. The integral in a PID
 
 
 ## Defining Hyperparameters
-In this project I used manual tuning to chose the final hyperparameters (Kp, Kd, Ki) for the PID-controller of the steering. I set the throttle to a small constant value of 0.1 which leads to a speed of 7 to 9 mph in the simulator. Then I optimized every hyperparameter at a time by using the following procedure:
+In this project I used manual tuning to chose the final hyperparameters (Kp, Kd, Ki) for the PID-controller of the steering. I set the throttle to a small constant value of 0.1 which leads to a speed of 7 to 9 mph in the simulator. Then I optimized every hyperparameter at a time by the following procedure:
 
 1. Set all gains to zero.
 2. Increase the P gain until the response to a disturbance is steady oscillation.
@@ -55,7 +55,8 @@ Here are the final results of my manual tuning of the hyperparameters:
 
 
 ## Discussion
-Here I implemented a basic solution to maneuver the vehicle around the given track. I chose the hyperparameters of the PID-controller for steering with manual tuning and set the throttle value to a small constant value. 
+I implemented a basic solution to maneuver the vehicle around the given track. I chose the hyperparameters of the PID-controller for steering with manual tuning and set the throttle value to a small constant value. 
+
 To improve the outcome of the project, I would suggest the following steps:
 * use also PID-controller for the velocity (by controlling the throttle value)
 * use the twiddle method to tune the hyperparameters
