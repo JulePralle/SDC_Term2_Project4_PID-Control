@@ -1,7 +1,57 @@
+
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+
+
+[//]: # (Image References)
+
+[image1]: ./writeup/Simulator.jpg "Introduction Image of Simulator"
+[image2]: ./writeup/PID_varyingP.jpg "Example of P-Control (https://en.wikipedia.org/wiki/PID_controller#/media/File:PID_varyingP.jpg)"
+[image3]: ./writeup/PID_varyingD.jpg "Example of D-Control (https://en.wikipedia.org/wiki/PID_controller#/media/File:Change_with_Kd.png)"
+[image4]: ./writeup/PID_varyingI.jpg "Example of I-Control (https://en.wikipedia.org/wiki/PID_controller#/media/File:Change_with_Ki.png)"
+
+
+
+## Introduction 
+In this project, a PID controller should be programed in C++ to maneuver the vehicle around a track in the udacity simulator. The simulator provides the cross track error (CTE) and the velocity (mph) in order to compute the appropriate steering angle.
+
+![alt text][image1]
+
+## PID Control Components
+
+### P - Proportional
+The proportional control system is defined as `Kp * CTE` and is a type of linear feedback control system. We can control the oscillation by this parameter, the higher this value the faster it will oscillates.
+
+![alt text][image2]
+
+### D - Differential Control
+The differential control system is defined as `Kd * (CTE_t - CTE_t-1)/delta_t`. The slope of the error (CTE) whch is  rate of change will be determinated over time and multiplied by the derivative gain `Kd`. This control is able to prevent the controller from overshooting. The higher value of `Kd` the slower the control will reach the value 0.
+
+![alt text][image3]
+
+### I - Integral Control
+The integral control system is defined as `Ki * sum(CTE)`. The integral in a PID controller is the sum of the error (CTE) over time to give the accumulated system bias, which can then be corrected. The smaller value of `Ki` the slower the system bias is removed. 
+
+[alt text][image4]
+
+
+## Defining Hyperparameters
+In this project I used manual tuning to chose the final hyperparameters (Kp, Kd, Ki) for the PID-controller of the steering. I set the throttle to a small constant value of 0.1 which leads to a speed of 7 to 9 mph in the simulator. Then I optimized every hyperparameter at a time. I first tuned my Kp so that the car could complete at least the beginning of the track. Then I added Kd to reduce the osciallations. Then once I had tuned Kp and also Kd, I started to add Ki. The hyperparameter Ki needed to be quite small for a smoother ride. 
+Here are the final result of my manual tuning of hyperparameters:
+
+* Kp: 0.17
+* Ki: 0.0000001
+* Kd: 3.2
+
+
+## Discussion
+Here I implemented a basic solution to maneuver the vehicle around the given track. I chose the hyperparameters of the PID-controller for steering with manual tuning and set the throttle value to a small constant value. 
+To improve the outcome of the project, I would suggest the following steps:
+* use also PID-controller for the velocity (by controlling the throttle value)
+* use the twiddle method to tune the hyperparameters
+
 
 ## Dependencies
 
