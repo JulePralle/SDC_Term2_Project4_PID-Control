@@ -34,7 +34,7 @@ The differential control system is defined as `Kd * (CTE_t - CTE_t-1)/delta_t`. 
 ### I - Integral Control
 The integral control system is defined as `Ki * sum(CTE)`. The integral in a PID controller is the sum of the error (CTE) over time to give the accumulated system bias, which can then be corrected. The smaller value of `Ki` the slower the system bias is removed. 
 
-[alt text][image4]
+![alt text][image4]
 
 
 ## Defining Hyperparameters
