@@ -63,6 +63,9 @@ To improve the outcome of the project, I would suggest the following steps:
 * use the twiddle method to tune the hyperparameters
 
 
+
+# Udacity Part
+
 ## Dependencies
 
 * cmake >= 3.5
